@@ -12,6 +12,10 @@ env/
 # VS Code
 .vscode/
 
+# Visual Studio
+.vs/
+**/.vs/
+
 # Jupyter
 .ipynb_checkpoints/
 
