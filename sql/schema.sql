@@ -86,3 +86,68 @@ CREATE TABLE fact_payments
         REFERENCES fact_subscriptions(subscription_id)
 );
 GO
+
+-- Nonclustered Indexes
+
+-- Foreign Keys
+CREATE NONCLUSTERED INDEX IX_fact_subscriptions_user_id
+ON fact_subscriptions(user_id);
+GO
+
+CREATE NONCLUSTERED INDEX IX_fact_subscriptions_plan_id
+ON fact_subscriptions(plan_id);
+GO
+
+CREATE NONCLUSTERED INDEX IX_fact_payments_subscription_id
+ON fact_payments(subscription_id);
+GO
+
+-- Frequently Filtered Dates
+CREATE NONCLUSTERED INDEX IX_fact_subscriptions_start_date
+ON fact_subscriptions(start_date);
+GO
+
+CREATE NONCLUSTERED INDEX IX_fact_payments_payment_date
+ON fact_payments(payment_date);
+GO
+
+
+
+SELECT * FROM dim_plans;
+
+SELECT COUNT(*) FROM fact_subscriptions;
+
+SELECT TOP (10)
+    subscription_id,
+    user_id,
+    plan_id,
+    subscription_status
+FROM fact_subscriptions;
+
+SELECT COUNT(*) AS users
+FROM dim_users;
+
+SELECT COUNT(*) AS plans
+FROM dim_plans;
+
+SELECT COUNT(*) AS subscriptions
+FROM fact_subscriptions;
+
+SELECT COUNT(*) AS payments
+FROM fact_payments;
+
+SELECT TOP (10)
+    p.payment_id,
+    p.payment_date,
+    p.amount,
+    s.subscription_status,
+    u.country,
+    pl.plan_name,
+    pl.billing_cycle
+FROM fact_payments AS p
+JOIN fact_subscriptions AS s
+    ON p.subscription_id = s.subscription_id
+JOIN dim_users AS u
+    ON s.user_id = u.user_id
+JOIN dim_plans AS pl
+    ON s.plan_id = pl.plan_id;
