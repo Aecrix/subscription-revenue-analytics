@@ -88,9 +88,7 @@ subscription-revenue-analytics/
 │
 ├── src/
 │   ├── etl.py
-│   ├── features.py
-│   ├── load_to_sql.py
-│   └── utils.py
+│   └── load_to_sql.py
 │
 ├── README.md
 └── requirements.txt
