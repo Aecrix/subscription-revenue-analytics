@@ -151,3 +151,6 @@ JOIN dim_users AS u
     ON s.user_id = u.user_id
 JOIN dim_plans AS pl
     ON s.plan_id = pl.plan_id;
+
+    CREATE OR ALTER VIEW vw_executive_dashboard AS
+

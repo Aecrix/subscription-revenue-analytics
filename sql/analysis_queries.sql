@@ -479,11 +479,38 @@ GO
 -- Creates a business-ready customer dataset for segmentation analysis.
 -- Simplifies Tableau by exposing customer-level metrics in one view.
 
-SELECT TOP (10) * FROM vw_monthly_revenue;
-GO
 
-SELECT TOP (10) * FROM vw_plan_performance;
-GO
+---- 22. Customer Segmentation View
+CREATE OR ALTER VIEW vw_executive_dashboard AS
+SELECT
+    fp.payment_id,
+    fp.payment_date,
+    fp.payment_month,
+    fp.amount,
 
-SELECT TOP (10) * FROM vw_customer_segmentation;
+    fs.subscription_id,
+    fs.subscription_status,
+    fs.start_date,
+    fs.end_date,
+
+    du.user_id,
+    du.country,
+    du.industry,
+    du.acquisition_channel,
+    du.company_size,
+
+    dp.plan_name,
+    dp.billing_cycle,
+    dp.monthly_price
+
+FROM fact_payments fp
+
+INNER JOIN fact_subscriptions fs
+    ON fp.subscription_id = fs.subscription_id
+
+INNER JOIN dim_users du
+    ON fs.user_id = du.user_id
+
+INNER JOIN dim_plans dp
+    ON fs.plan_id = dp.plan_id;
 GO

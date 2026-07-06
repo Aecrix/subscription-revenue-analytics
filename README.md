@@ -1,4 +1,5 @@
-# Subscription Revenue Intelligence Platform
+# Subscription Revenue Analytics
+### End-to-End Analytics Engineering Project using Python, SQL Server & Tableau
 
 An end-to-end Analytics Engineering project that simulates how a modern SaaS company transforms raw subscription data into business-ready insights using Python, SQL Server, and Tableau.
 
@@ -91,21 +92,22 @@ subscription-revenue-analytics/
 │   └── load_to_sql.py
 │
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── .gitignore
 ```
 
 ---
 
 # Dataset
 
-The project uses a synthetic SaaS subscription dataset generated with Python and Faker.
+The project is built on the IBM Telco Customer Churn dataset, which was transformed into a realistic SaaS subscription business using Python and Faker to generate production-style customers, subscriptions, payments, and engagement activity.
 
 The generated data simulates realistic customer subscriptions, payments, pricing plans, acquisition channels, and engagement activity.
 
 ### Dataset Highlights
 
 - 7,043 customers
-- 150K+ payment records
+- 55K+ payment records
 - Multiple subscription plans
 - Multiple countries
 - Multiple industries
@@ -147,7 +149,7 @@ The ETL process is fully orchestrated through a single pipeline function.
 
 # Phase 3 — Data Warehouse
 
-Designed a Star Schema data warehouse in SQL Server to support analytical queries.
+Designed and implemented a Star Schema data warehouse in SQL Server to support scalable analytical workloads.
 
 ### Dimension Tables
 
@@ -203,7 +205,7 @@ To simplify reporting, reusable SQL views were created as a semantic layer for T
 
 # Phase 5 — Tableau Dashboards
 
-Built interactive dashboards connected directly to SQL Server.
+Built four interactive Tableau dashboards connected directly to SQL Server for executive reporting and business performance analysis.
 
 ### Executive Dashboard
 
@@ -313,4 +315,5 @@ B.Tech, Electronics & Communication Engineering
 IIIT Ranchi
 
 - GitHub: https://github.com/Aecrix
-- LinkedIn: *(Add your LinkedIn profile here)*
+- LinkedIn: https://www.linkedin.com/in/vihan-sharma-31b400324/
+
