@@ -480,7 +480,7 @@ GO
 -- Simplifies Tableau by exposing customer-level metrics in one view.
 
 
----- 22. Customer Segmentation View
+---- Executive Dashboard View
 CREATE OR ALTER VIEW vw_executive_dashboard AS
 SELECT
     fp.payment_id,
